@@ -1,3 +1,3 @@
-module ai-naming
+module github.com/RuiOkazaki/ai-naming
 
 go 1.20
