@@ -2,6 +2,7 @@ package main
 
 import (
 	"bytes"
+	"encoding/json"
 	"fmt"
 	"io/ioutil"
 	"net/http"
@@ -75,6 +76,32 @@ func main() {
 		return
 	}
 
-	fmt.Println(string(result))
+	resultStruct := struct {
+		ID      string `json:"id"`
+		Object  string `json:"object"`
+		Created int    `json:"created"`
+		Model   string `json:"model"`
+		Choices []struct {
+			Text         string `json:"text"`
+			Index        int    `json:"index"`
+			Logprobs     string `json:"logprobs"`
+			FinishReason string `json:"finish_reason"`
+		} `json:"choices"`
+		Usage struct {
+			PromptTokens     int `json:"prompt_tokens"`
+			CompletionTokens int `json:"completion_tokens"`
+			TotalTokens      int `json:"total_tokens"`
+		} `json:"usage"`
+	}{}
+
+	if err := json.Unmarshal(result, &resultStruct); err != nil {
+		fmt.Println(err)
+		return
+	} else if len(resultStruct.Choices) == 0 {
+		fmt.Println("No choices")
+		return
+	}
+
+	fmt.Println(resultStruct.Choices[0].Text)
 
 }
