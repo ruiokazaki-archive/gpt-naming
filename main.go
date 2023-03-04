@@ -17,14 +17,14 @@ var questions = []*survey.Question{
 		Name: "type",
 		Prompt: &survey.Select{
 			Message: "Choose a type:",
-			Options: []string{"function", "variable"},
-			Default: "function",
+			Options: []string{"関数", "変数"},
+			Default: "関数",
 		},
 		Validate: survey.Required,
 	},
 	{
 		Name: "overview",
-		Prompt: &survey.Multiline{
+		Prompt: &survey.Input{
 			Message: "Enter an overview:",
 		},
 		Validate: survey.Required,
@@ -49,15 +49,18 @@ func main() {
 		return
 	}
 
+	prompt := fmt.Sprintf(
+		`プログラミングで使用する%s名を考えてください。\n概要\n%s\n条件\n・lower camel caseで出力する\n・フォーマットに従い最大5つ出力する\nフォーマット\n[名前]: 特徴`, answers.Type, answers.Overview)
+
 	req, err := http.NewRequest(
 		http.MethodPost,
 		"https://api.openai.com/v1/completions",
 		bytes.NewBuffer(
 			[]byte(`{
 				"model": "text-davinci-003",
-				"prompt": "Say this is a test",
+				"prompt": "`+prompt+`",
 				"temperature": 0,
-				"max_tokens": 70
+				"max_tokens": 200
 			}`)),
 	)
 
