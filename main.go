@@ -92,13 +92,19 @@ func main() {
 			CompletionTokens int `json:"completion_tokens"`
 			TotalTokens      int `json:"total_tokens"`
 		} `json:"usage"`
+		Error struct {
+			Message string `json:"message"`
+			Type    string `json:"type"`
+			Param   string `json:"param"`
+			Code    string `json:"code"`
+		} `json:"error"`
 	}{}
 
 	if err := json.Unmarshal(result, &resultStruct); err != nil {
 		fmt.Println(err)
 		return
-	} else if len(resultStruct.Choices) == 0 {
-		fmt.Println("No choices")
+	} else if resultStruct.Error.Message != "" {
+		fmt.Println(resultStruct.Error.Message)
 		return
 	}
 
