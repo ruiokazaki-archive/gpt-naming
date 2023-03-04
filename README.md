@@ -1,7 +1,8 @@
 # ai-naming
 OpenAIのAPIを使用してプログラミングの命名をしてもらう
 
-<img width="751" alt="image" src="https://user-images.githubusercontent.com/70571576/222913372-d4f8a0b1-7fdc-49c6-be8a-c2cf451adfc1.png">
+![demo](https://user-images.githubusercontent.com/70571576/222914576-6e764b9b-ae75-492c-acf6-44e57dedc5da.gif)
+
 
 # setup
 
