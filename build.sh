@@ -1,3 +1,2 @@
 #!/bin/bash
-export $(grep -v '^#' .env | xargs)
-go build -o naming
+go build -ldflags "-s -w -X 'main.$(grep -v '^#' .env | xargs)'" -o naming -trimpath

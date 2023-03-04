@@ -6,7 +6,6 @@ import (
 	"fmt"
 	"io/ioutil"
 	"net/http"
-	"os"
 
 	"github.com/AlecAivazis/survey/v2"
 )
@@ -29,6 +28,8 @@ var questions = []*survey.Question{
 		Validate: survey.Required,
 	},
 }
+
+var OPENAI_API_KEY string
 
 func main() {
 	answers := struct {
@@ -63,7 +64,7 @@ func main() {
 		return
 	}
 
-	req.Header.Add("Authorization", "Bearer "+os.Getenv("OPENAI_API_KEY"))
+	req.Header.Add("Authorization", "Bearer "+OPENAI_API_KEY)
 	req.Header.Add("Content-Type", "application/json")
 
 	client := &http.Client{}
