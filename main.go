@@ -6,8 +6,10 @@ import (
 	"fmt"
 	"io/ioutil"
 	"net/http"
+	"os"
 
 	"github.com/AlecAivazis/survey/v2"
+	dotenv "github.com/joho/godotenv"
 )
 
 var questions = []*survey.Question{
@@ -30,6 +32,11 @@ var questions = []*survey.Question{
 }
 
 func main() {
+	if err := dotenv.Load(); err != nil {
+		fmt.Println(err.Error())
+		return
+	}
+
 	answers := struct {
 		Type     string
 		Overview string
@@ -59,7 +66,7 @@ func main() {
 		return
 	}
 
-	req.Header.Add("Authorization", "Bearer ")
+	req.Header.Add("Authorization", "Bearer "+os.Getenv("OPENAI_API_KEY"))
 	req.Header.Add("Content-Type", "application/json")
 
 	client := &http.Client{}
