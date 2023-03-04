@@ -3,6 +3,8 @@ OpenAIのAPIを使用してプログラミングの命名をしてもらう
 
 ![demo](https://user-images.githubusercontent.com/70571576/222914576-6e764b9b-ae75-492c-acf6-44e57dedc5da.gif)
 
+# get ApiKey
+[Account API Keys - OpenAI API](https://platform.openai.com/account/api-keys)
 
 # setup
 
