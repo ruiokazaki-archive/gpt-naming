@@ -8,11 +8,19 @@ Have them name their programming using GPT-3.
 
 [Account API Keys - OpenAI API](https://platform.openai.com/account/api-keys)
 
-## setup
+## install
+
+### brew
 
 ```shell
-cp .env.template .env
-vi .env
+brew install gpt-naming
+```
+
+### linux
+
+```shell
+git clone https://github.com/RuiOkazaki/gpt-naming.git
+cd gpt-naming
 make build-linux
 ```
 
