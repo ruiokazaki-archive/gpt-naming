@@ -10,9 +10,10 @@ Have them name their programming using GPT-3.
 
 ## install
 
-### brew
+### homebrew
 
 ```shell
+brew tap ruiokazaki/gpt-naming
 brew install gpt-naming
 ```
 
@@ -48,4 +49,20 @@ naming
 ```shell
 # Output
 1. naming: reason.
+```
+
+## uninstall
+
+### homebrew
+
+```shell
+brew untap ruiokazaki/gpt-naming
+brew uninstall gpt-naming
+```
+
+### linux
+
+```shell
+rm -rf ~/.config/gpt-naming/
+rm ~/bin/naming
 ```
