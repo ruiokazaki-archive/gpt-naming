@@ -2,7 +2,7 @@
 
 Have them name their programming using GPT-3.
 
-![demo](https://user-images.githubusercontent.com/70571576/222914576-6e764b9b-ae75-492c-acf6-44e57dedc5da.gif)
+![demo](https://user-images.githubusercontent.com/70571576/223034019-62f8c7be-0cf2-4ba9-b3ac-7b83bf81a009.gif)
 
 ## get ApiKey
 
