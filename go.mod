@@ -1,4 +1,4 @@
-module github.com/RuiOkazaki/ai-naming
+module github.com/RuiOkazaki/gpt-naming
 
 go 1.20
 
