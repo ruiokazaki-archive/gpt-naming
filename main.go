@@ -15,8 +15,8 @@ var questions = []*survey.Question{
 		Name: "type",
 		Prompt: &survey.Select{
 			Message: "Choose a type:",
-			Options: []string{"関数", "変数"},
-			Default: "関数",
+			Options: []string{"argument", "class", "constant", "delegate", "enum", "event", "exception", "function", "interface", "method", "namespace", "property", "struct", "type", "variables"},
+			Default: "function",
 		},
 		Validate: survey.Required,
 	},
@@ -45,7 +45,7 @@ func main() {
 	}
 
 	prompt := fmt.Sprintf(
-		`プログラミングで使用する%s名を考えてください。\n概要\n%s\n条件\n・lower camel caseで出力する\n・フォーマットに従い最大5つ出力する\nフォーマット\n[名前]: 特徴`, answers.Type, answers.Overview)
+		`# Request\nThink of a %s name to use in programming.\n# Function Summary\n%s\n# Condition\n- Output in lower camel case\n- Briefly explain the reason for naming\n- Output the reason for naming in the language you are outlining\n- Output up to 5 outputs according to the format\n# Output format\nindex. [naming]: reason`, answers.Type, answers.Overview)
 
 	req, err := http.NewRequest(
 		http.MethodPost,
